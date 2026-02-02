@@ -191,6 +191,17 @@
   color: var(--gray);
 }
 
+.designerLink {
+  color: var(--charcoal);
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.designerLink:hover {
+  color: var(--primary-brown);
+}
+
 .paymentMethods {
   display: flex;
   gap: 20px;

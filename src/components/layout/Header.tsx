@@ -1,6 +1,9 @@
+"use client";
+
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import {
   Search,
   User,
@@ -13,6 +16,7 @@ import {
 import styles from "./Header.module.css";
 
 const Header = () => {
+  const pathname = usePathname();
   return (
     <header className={styles.header}>
       {/* Promotion Bar */}
@@ -44,18 +48,36 @@ const Header = () => {
             {/* Navigation Links */}
             <ul className={styles.navLinks}>
               <li>
-                <Link href="/" className={styles.active}>
+                <Link
+                  href="/"
+                  className={pathname === "/" ? styles.active : ""}
+                >
                   Home
                 </Link>
               </li>
               <li>
-                <Link href="/shop">Shop</Link>
+                <Link
+                  href="/shop"
+                  className={pathname === "/shop" ? styles.active : ""}
+                >
+                  Shop
+                </Link>
               </li>
               <li>
-                <Link href="/about">About Us</Link>
+                <Link
+                  href="/about"
+                  className={pathname === "/about" ? styles.active : ""}
+                >
+                  About Us
+                </Link>
               </li>
               <li>
-                <Link href="/contact">Contact Us</Link>
+                <Link
+                  href="/contact"
+                  className={pathname === "/contact" ? styles.active : ""}
+                >
+                  Contact Us
+                </Link>
               </li>
             </ul>
 

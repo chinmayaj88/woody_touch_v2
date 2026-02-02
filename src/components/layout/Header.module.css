@@ -158,7 +158,7 @@
 }
 
 .navLinks a.active {
-  color: var(--charcoal);
+  color: var(--primary-brown);
   font-weight: 600;
 }
 
@@ -169,7 +169,7 @@
   left: 0;
   width: 100%;
   height: 2px;
-  background: var(--charcoal);
+  background: var(--primary-brown);
 }
 
 .actions {

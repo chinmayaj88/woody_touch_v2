@@ -128,7 +128,17 @@ const Footer = () => {
       <div className={styles.bottomFooter}>
         <div className="container">
           <div className={styles.bottomContent}>
-            <p>© Copyright Woody Touch 2024. Design by Figma.guru</p>
+            <p>
+              © Copyright Woody Touch 2024. Designed by{" "}
+              <a
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.designerLink}
+              >
+                Chinmaya Jena
+              </a>
+            </p>
 
             <div className={styles.paymentMethods}>
               <span className={styles.paymentIcon}>UPI</span>
