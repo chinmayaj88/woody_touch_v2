@@ -42,21 +42,21 @@
   position: absolute;
   bottom: 24px;
   left: 24px;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 10px;
-  background: rgba(60, 60, 60, 0.9);
+  background: rgba(74, 74, 74, 0.85);
   color: var(--white);
-  padding: 14px 24px;
-  border-radius: 6px;
-  font-size: 18px;
-  font-weight: 600;
+  padding: 12px 20px;
+  border-radius: 0;
+  font-size: 16px;
+  font-weight: 500;
   transition: all 0.3s ease;
-  backdrop-filter: blur(10px);
+  z-index: 2;
 }
 
 .cardLink:hover {
-  background: var(--primary-brown);
+  background: rgba(74, 74, 74, 1);
   gap: 14px;
 }
 

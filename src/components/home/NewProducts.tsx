@@ -64,11 +64,11 @@ const NewProducts = () => {
             <span className={styles.eyebrow}>Exquisite Craftsmanship</span>
             <h2 className={styles.title}>The Artisan Signature Series</h2>
           </div>
-          <p className={styles.headerDescription}>
+          {/* <p className={styles.headerDescription}>
             Each piece is meticulously hand-woven by local artisans using the
             finest ethically-sourced cane, blending traditional soul with
             contemporary aesthetics.
-          </p>
+          </p> */}
         </div>
 
         {/* Tabs */}

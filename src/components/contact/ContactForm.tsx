@@ -47,11 +47,11 @@ const ContactForm = () => {
                 <div>
                   <h3>Physical address</h3>
                   <p>
-                    NIT 3, Kharvela Nagar,
+                    Unit 3, Kharvela Nagar,
                     <br />
                     Bhubaneswar, Odisha
                     <br />
-                    Backside of GPO
+                    Backside of GPO, 751001
                   </p>
                 </div>
               </div>

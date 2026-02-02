@@ -25,9 +25,9 @@ const Footer = () => {
               </Link>
 
               <address className={styles.address}>
-                NIT 3, Kharvela Nagar, Bhubaneswar, Odisha
+                Unit 3, Kharvela Nagar, Bhubaneswar, Odisha
                 <br />
-                Backside of GPO
+                Backside of GPO, 751001
               </address>
 
               <p className={styles.contactInfo}>
