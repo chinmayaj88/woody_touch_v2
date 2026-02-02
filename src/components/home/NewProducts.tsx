@@ -13,19 +13,19 @@ const tabs = ["All", "Chairs", "Tables", "Armchairs", "Sofas", "Decor"];
 
 const products = [
   {
-    name: "Modern Armchair",
+    name: "Classic Curve Armchair",
     price: "18,500",
     colors: ["#8B7355", "#D4A574", "#6B5442"],
     image: "/images/product-chair.png",
   },
   {
-    name: "Egg chair",
+    name: "The Orbit Loom Chair",
     price: "22,000",
     colors: ["#A0A0A0", "#D4D4D4", "#6B6B6B"],
     image: "/images/product-lounge.png",
   },
   {
-    name: "Chaise Lounge",
+    name: "Majestic Daybed Lounge",
     price: "35,000",
     colors: ["#C4A885", "#9A7B5C", "#D4C4B0"],
     image: "/images/product-basket.png",
@@ -59,7 +59,17 @@ const NewProducts = () => {
   return (
     <section className={styles.newProducts} ref={sectionRef}>
       <div className="container">
-        <h2 className={styles.title}>New Products</h2>
+        <div className={styles.sectionHeader}>
+          <div className={styles.titleGroup}>
+            <span className={styles.eyebrow}>Exquisite Craftsmanship</span>
+            <h2 className={styles.title}>The Artisan Signature Series</h2>
+          </div>
+          <p className={styles.headerDescription}>
+            Each piece is meticulously hand-woven by local artisans using the
+            finest ethically-sourced cane, blending traditional soul with
+            contemporary aesthetics.
+          </p>
+        </div>
 
         {/* Tabs */}
         <div className={styles.tabs}>

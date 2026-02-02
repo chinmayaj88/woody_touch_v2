@@ -44,25 +44,31 @@ const AboutBanner = () => {
         {/* Right - Content Section */}
         <div className={styles.contentSection} ref={textRef}>
           <div className={styles.content}>
+            <span className={styles.eyebrow}>Our Heritage</span>
             <h2 className={styles.title}>
-              Affordable furniture for
-              <br />
-              every home
+              Preserving the Lost Art of <br />
+              Ancient Weaving
             </h2>
 
             <div className={styles.text}>
               <p>
-                Ultrices porttitor lacus sed condimentum nulla viverra. Maecenas
-                sed nisi imperdiet sed lorem sed quis sagittis in. Auctor augue
-                ut nec a quisque libero imperdiet velit ut.
+                At Woody Touch, we believe every piece of furniture has a story
+                to tell. Our journey is about more than just making chairs—it's
+                about reviving centuries-old weaving techniques and giving them
+                a permanent place in the modern Indian home.
               </p>
 
               <p>
-                Tellus dui pharetra ut pellentesque posuere ut amet. Curabitur
-                lectus viverra in sit tortor. Magna tristique tristique blandit
-                nunc tincidunt et duis adipiscing ac. Nulla dictum semper
-                commodo
+                Using 100% sustainable, hand-picked cane from local forests, our
+                master artisans craft each piece with precision that no machine
+                can match. Experience heirlooms built for generations.
               </p>
+            </div>
+
+            <div className={styles.ctaWrapper}>
+              <a href="/about" className={styles.learnMore}>
+                Our Craftsmanship Story
+              </a>
             </div>
           </div>
         </div>

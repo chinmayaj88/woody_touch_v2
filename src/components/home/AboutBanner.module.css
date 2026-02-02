@@ -72,6 +72,16 @@
   max-width: 520px;
 }
 
+.eyebrow {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--primary-brown);
+  margin-bottom: 20px;
+}
+
 .title {
   font-size: 48px;
   font-weight: 700;
@@ -89,6 +99,27 @@
 
 .text p:last-child {
   margin-bottom: 0;
+}
+
+.ctaWrapper {
+  margin-top: 40px;
+}
+
+.learnMore {
+  display: inline-block;
+  padding: 16px 36px;
+  background: var(--primary-brown);
+  color: var(--white);
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.learnMore:hover {
+  background: var(--dark-brown);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(154, 123, 92, 0.2);
 }
 
 /* Responsive */

@@ -11,22 +11,22 @@ gsap.registerPlugin(ScrollTrigger);
 
 const categoriesData = [
   {
-    name: "Tables",
-    count: "24products",
+    name: "Designer Tables",
+    count: "24 products",
     image: "/images/product-table.png",
   },
   {
-    name: "Chairs",
+    name: "Artisan Chairs",
     count: "28 products",
     image: "/images/product-chair.png",
   },
   {
-    name: "Armchairs",
+    name: "Luxe Armchairs",
     count: "18 products",
     image: "/images/artisan-craft.png",
   },
   {
-    name: "Sofas",
+    name: "Classic Sofas",
     count: "42 products",
     image: "/images/product-lounge.png",
   },

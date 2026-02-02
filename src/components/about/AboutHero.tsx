@@ -53,7 +53,10 @@ const AboutHero = () => {
                   "Bringing natural elegance to every Indian home through
                   handcrafted excellence."
                 </p>
-                <h3 className={styles.founderName}>— Woody Touch Founder</h3>
+                <h3 className={styles.founderName}>
+                  Santosh Barik{" "}
+                  <span className={styles.founderTitle}>— Founder</span>
+                </h3>
               </div>
             </div>
           </div>

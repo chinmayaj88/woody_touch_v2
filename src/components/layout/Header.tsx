@@ -19,7 +19,8 @@ const Header = () => {
       <div className={styles.promoBar}>
         <div className="container">
           <p>
-            THIS WEEKEND <strong>SALE 20% OFF</strong> ON ALL PRODUCTS
+            FREE HOME DELIVERY IN BHUBANESWAR • <strong>UP TO 30% OFF</strong>{" "}
+            ON HANDCRAFTED CLASSICS
           </p>
         </div>
       </div>

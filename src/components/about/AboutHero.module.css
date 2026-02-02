@@ -103,6 +103,13 @@
   letter-spacing: 1px;
 }
 
+.founderTitle {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--gray);
+  margin-left: 8px;
+}
+
 /* Content Section */
 .contentSection {
   display: flex;

@@ -38,16 +38,17 @@ const Hero = () => {
         <div className={styles.heroGrid}>
           {/* Left Content */}
           <div className={styles.leftContent}>
-            <span className={styles.tag}>Furniture</span>
+            <span className={styles.tag}>Handcrafted in Odisha</span>
             <div ref={textRef}>
               <h1 className={styles.title}>
-                Where Traditional
+                Bring the Soul of
                 <br />
-                Meets Modern
+                Nature to Your Home
               </h1>
               <p className={styles.description}>
-                Mi tristique est nunc sapien orci tortor ac. Suspendisse leo et
-                cursus pharetra tellus tincidunt.
+                Discover the timeless elegance of premium cane furniture.
+                Sustainable, durable, and designed to turn your living space
+                into a masterpiece of natural comfort.
               </p>
             </div>
             <div className={styles.buttonGroup} ref={buttonsRef}>
