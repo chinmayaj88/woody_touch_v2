@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -12,11 +12,18 @@ import {
   Phone,
   MapPin,
   ChevronDown,
+  X,
 } from "lucide-react";
 import styles from "./Header.module.css";
 
 const Header = () => {
   const pathname = usePathname();
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const toggleMobileMenu = () => {
+    setMobileMenuOpen(!mobileMenuOpen);
+  };
+
   return (
     <header className={styles.header}>
       {/* Promotion Bar */}
@@ -35,17 +42,10 @@ const Header = () => {
           <div className={styles.navContent}>
             {/* Logo */}
             <Link href="/" className={styles.logo}>
-              {/* <Image
-                src="/images/wt_logo.png"
-                alt="Woody Touch"
-                width={48}
-                height={48}
-                className={styles.logoImage}
-              /> */}
               <span>Woody Touch</span>
             </Link>
 
-            {/* Navigation Links */}
+            {/* Navigation Links - Desktop */}
             <ul className={styles.navLinks}>
               <li>
                 <Link
@@ -93,10 +93,82 @@ const Header = () => {
                 <ShoppingBag size={20} />
                 <span className={styles.badge}>0</span>
               </button>
+
+              {/* Hamburger Menu Button */}
+              <button
+                className={`${styles.hamburger} ${mobileMenuOpen ? styles.open : ""}`}
+                onClick={toggleMobileMenu}
+                aria-label="Toggle menu"
+              >
+                <span></span>
+                <span></span>
+                <span></span>
+              </button>
             </div>
           </div>
         </div>
       </nav>
+
+      {/* Mobile Menu Overlay */}
+      <div
+        className={`${styles.mobileOverlay} ${mobileMenuOpen ? styles.active : ""}`}
+        onClick={toggleMobileMenu}
+      ></div>
+
+      {/* Mobile Menu Drawer */}
+      <div
+        className={`${styles.mobileMenu} ${mobileMenuOpen ? styles.active : ""}`}
+      >
+        <div className={styles.mobileMenuHeader}>
+          <span className={styles.mobileMenuTitle}>Menu</span>
+          <button
+            className={styles.closeBtn}
+            onClick={toggleMobileMenu}
+            aria-label="Close menu"
+          >
+            <X size={24} />
+          </button>
+        </div>
+
+        <ul className={styles.mobileNavLinks}>
+          <li>
+            <Link
+              href="/"
+              className={pathname === "/" ? styles.active : ""}
+              onClick={toggleMobileMenu}
+            >
+              Home
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="/shop"
+              className={pathname === "/shop" ? styles.active : ""}
+              onClick={toggleMobileMenu}
+            >
+              Shop
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="/about"
+              className={pathname === "/about" ? styles.active : ""}
+              onClick={toggleMobileMenu}
+            >
+              About Us
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="/contact"
+              className={pathname === "/contact" ? styles.active : ""}
+              onClick={toggleMobileMenu}
+            >
+              Contact Us
+            </Link>
+          </li>
+        </ul>
+      </div>
     </header>
   );
 };
