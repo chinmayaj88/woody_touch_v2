@@ -1,0 +1,222 @@
+.hero {
+  background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
+  padding: 80px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 60%;
+  height: 100%;
+  background: url("/images/hero-furniture.png") center/cover no-repeat;
+  opacity: 0.15;
+  pointer-events: none;
+}
+
+.heroGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.leftContent {
+  color: var(--white);
+}
+
+.tag {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--white);
+  background: rgba(255, 255, 255, 0.15);
+  padding: 8px 20px;
+  border-radius: 4px;
+  margin-bottom: 32px;
+}
+
+.title {
+  font-size: 56px;
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--white);
+  margin-bottom: 24px;
+  font-family: var(--font-secondary);
+}
+
+.description {
+  font-size: 16px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 40px;
+  max-width: 500px;
+}
+
+.buttonGroup {
+  display: flex;
+  gap: 16px;
+}
+
+.primaryBtn {
+  background: var(--primary-brown);
+  color: var(--white);
+  padding: 16px 40px;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.primaryBtn:hover {
+  background: var(--dark-brown);
+  transform: translateY(-2px);
+}
+
+.secondaryBtn {
+  background: transparent;
+  color: var(--white);
+  padding: 16px 40px;
+  font-size: 15px;
+  font-weight: 600;
+  border: 2px solid var(--white);
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.secondaryBtn:hover {
+  background: var(--white);
+  color: var(--charcoal);
+}
+
+/* Right Content - Product Grid */
+.rightContent {
+  position: relative;
+}
+
+.productGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.productCard {
+  background: var(--white);
+  border-radius: 8px;
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.productCard:hover {
+  transform: translateY(-4px);
+}
+
+.productCard.large {
+  grid-row: span 1;
+}
+
+.productCard.special {
+  background: var(--primary-brown);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 20px;
+}
+
+.specialContent {
+  text-align: center;
+  color: var(--white);
+}
+
+.discount {
+  display: block;
+  font-size: 32px;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
+.specialText {
+  font-size: 14px;
+  line-height: 1.4;
+  font-weight: 500;
+}
+
+.price {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--charcoal);
+  z-index: 2;
+}
+
+.productImage {
+  width: 100%;
+  height: 200px;
+  background: #e8e8e8;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.img {
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.productCard:hover .img {
+  transform: scale(1.1);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .heroGrid {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+
+  .title {
+    font-size: 48px;
+  }
+
+  .hero {
+    padding: 60px 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 36px;
+  }
+
+  .buttonGroup {
+    flex-direction: column;
+  }
+
+  .primaryBtn,
+  .secondaryBtn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .productGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    padding: 40px 0;
+  }
+}
