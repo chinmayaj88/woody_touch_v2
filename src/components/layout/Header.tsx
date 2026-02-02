@@ -36,10 +36,10 @@ const Header = () => {
             {/* Logo */}
             <Link href="/" className={styles.logo}>
               <Image
-                src="/images/logo.png"
+                src="/images/wt_logo.png"
                 alt="Woody Touch"
-                width={32}
-                height={32}
+                width={48}
+                height={48}
                 className={styles.logoImage}
               />
               <span>Woody Touch</span>
