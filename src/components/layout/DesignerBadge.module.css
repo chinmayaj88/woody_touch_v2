@@ -7,39 +7,21 @@
   align-items: center;
   gap: 10px;
   padding: 14px 24px;
-  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+  background: var(--white);
   border: 2px solid var(--primary-brown);
   border-radius: 50px;
-  box-shadow:
-    0 8px 32px rgba(154, 123, 92, 0.4),
-    0 0 0 0 rgba(154, 123, 92, 0.4);
-  color: var(--white);
+  box-shadow: 0 4px 16px rgba(74, 52, 38, 0.15);
+  color: var(--dark-brown);
   text-decoration: none;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
-  animation: pulse 2s ease-in-out infinite;
-}
-
-@keyframes pulse {
-  0%,
-  100% {
-    box-shadow:
-      0 8px 32px rgba(154, 123, 92, 0.4),
-      0 0 0 0 rgba(154, 123, 92, 0.4);
-  }
-  50% {
-    box-shadow:
-      0 8px 32px rgba(154, 123, 92, 0.6),
-      0 0 0 8px rgba(154, 123, 92, 0);
-  }
 }
 
 .badge:hover {
   transform: translateY(-4px);
-  background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
-  border-color: var(--light-brown);
-  box-shadow: 0 12px 48px rgba(154, 123, 92, 0.6);
-  animation: none;
+  background: var(--dark-brown);
+  border-color: var(--dark-brown);
+  box-shadow: 0 8px 24px rgba(74, 52, 38, 0.25);
 }
 
 .iconWrapper {
@@ -47,25 +29,11 @@
   align-items: center;
   justify-content: center;
   color: var(--primary-brown);
-  animation: sparkle 1.5s ease-in-out infinite;
-}
-
-@keyframes sparkle {
-  0%,
-  100% {
-    transform: rotate(0deg) scale(1);
-    opacity: 1;
-  }
-  50% {
-    transform: rotate(180deg) scale(1.1);
-    opacity: 0.8;
-  }
+  transition: color 0.3s ease;
 }
 
 .badge:hover .iconWrapper {
-  color: var(--light-brown);
-  animation: none;
-  transform: rotate(0deg);
+  color: var(--accent-gold);
 }
 
 .text {
@@ -73,6 +41,12 @@
   font-weight: 400;
   letter-spacing: 0.3px;
   white-space: nowrap;
+  color: var(--dark-brown);
+  transition: color 0.3s ease;
+}
+
+.badge:hover .text {
+  color: var(--white);
 }
 
 .text strong {
@@ -82,7 +56,7 @@
 }
 
 .badge:hover .text strong {
-  color: var(--light-brown);
+  color: var(--accent-gold);
 }
 
 /* Responsive */
@@ -91,10 +65,13 @@
     bottom: 20px;
     right: 20px;
     padding: 12px 20px;
+  }
+
+  .text {
     font-size: 13px;
   }
 
-  .iconWrapper {
+  .iconWrapper svg {
     width: 14px;
     height: 14px;
   }
