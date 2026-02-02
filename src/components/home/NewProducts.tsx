@@ -39,17 +39,40 @@ const NewProducts = () => {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      cardsRef.current.forEach((card, index) => {
-        gsap.from(card, {
-          y: 40,
+      // Header Animation
+      const headerTitle = sectionRef.current?.querySelector(`.${styles.title}`);
+      const headerEyebrow = sectionRef.current?.querySelector(
+        `.${styles.eyebrow}`,
+      );
+
+      if (headerTitle && headerEyebrow) {
+        gsap.from([headerEyebrow, headerTitle], {
+          y: 30,
           opacity: 0,
           duration: 0.8,
-          delay: index * 0.15,
+          stagger: 0.2,
           scrollTrigger: {
-            trigger: card,
-            start: "top 85%",
+            trigger: sectionRef.current,
+            start: "top 75%",
           },
         });
+      }
+
+      // Products Animation
+      cardsRef.current.forEach((card, index) => {
+        if (card) {
+          gsap.from(card, {
+            y: 50,
+            opacity: 0,
+            duration: 0.8,
+            delay: index * 0.1,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: card,
+              start: "top 85%",
+            },
+          });
+        }
       });
     }, sectionRef);
 

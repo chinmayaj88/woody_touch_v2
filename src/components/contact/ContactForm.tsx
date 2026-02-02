@@ -1,8 +1,12 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { MapPin, Phone, Mail } from "lucide-react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import styles from "./ContactForm.module.css";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -11,6 +15,41 @@ const ContactForm = () => {
     email: "",
     message: "",
   });
+
+  const sectionRef = useRef<HTMLElement>(null);
+  const formRef = useRef<HTMLDivElement>(null);
+  const infoRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      // Animate Info Column
+      gsap.from(infoRef.current, {
+        x: -50,
+        opacity: 0,
+        duration: 1,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 75%",
+        },
+      });
+
+      // Animate Form Column
+      gsap.from(formRef.current, {
+        x: 50,
+        opacity: 0,
+        duration: 1,
+        delay: 0.2,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 75%",
+        },
+      });
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
@@ -28,11 +67,11 @@ const ContactForm = () => {
   };
 
   return (
-    <section className={styles.contactForm}>
+    <section className={styles.contactForm} ref={sectionRef}>
       <div className={styles.formContainer}>
         <div className={styles.formGrid}>
           {/* Left - Contact Info */}
-          <div className={styles.contactInfo}>
+          <div className={styles.contactInfo} ref={infoRef}>
             <h1 className={styles.title}>Contact Us</h1>
             <p className={styles.description}>
               Suspendisse leo at cursus pharetra tellus tincidunt. Risus nulla
@@ -79,7 +118,7 @@ const ContactForm = () => {
           </div>
 
           {/* Right - Form */}
-          <div className={styles.formWrapper}>
+          <div className={styles.formWrapper} ref={formRef}>
             <h2 className={styles.formTitle}>Get in touch</h2>
 
             <form onSubmit={handleSubmit} className={styles.form}>

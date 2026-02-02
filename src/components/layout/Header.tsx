@@ -35,13 +35,13 @@ const Header = () => {
           <div className={styles.navContent}>
             {/* Logo */}
             <Link href="/" className={styles.logo}>
-              <Image
+              {/* <Image
                 src="/images/wt_logo.png"
                 alt="Woody Touch"
                 width={48}
                 height={48}
                 className={styles.logoImage}
-              />
+              /> */}
               <span>Woody Touch</span>
             </Link>
 

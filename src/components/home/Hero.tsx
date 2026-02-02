@@ -10,23 +10,41 @@ const Hero = () => {
   const heroRef = useRef<HTMLElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
   const buttonsRef = useRef<HTMLDivElement>(null);
+  const productGridRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.from(textRef.current, {
-        y: 50,
-        opacity: 0,
-        duration: 1,
-        ease: "power3.out",
-      });
+      const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
 
-      gsap.from(buttonsRef.current, {
-        y: 30,
-        opacity: 0,
-        duration: 1,
-        delay: 0.3,
-        ease: "power3.out",
-      });
+      // Staggered Text Animations
+      const title = textRef.current?.querySelector("h1");
+      const desc = textRef.current?.querySelector("p");
+      const tag = heroRef.current?.querySelector("span");
+
+      if (tag && title && desc) {
+        tl.from(tag, { y: 20, opacity: 0, duration: 0.8 })
+          .from(title, { y: 40, opacity: 0, duration: 0.8 }, "-=0.6")
+          .from(desc, { y: 30, opacity: 0, duration: 0.8 }, "-=0.6")
+          .from(
+            buttonsRef.current,
+            { y: 20, opacity: 0, duration: 0.8 },
+            "-=0.6",
+          );
+      }
+
+      // Product Cards Staggered Entry with Scale
+      const cards = productGridRef.current?.children;
+      if (cards) {
+        gsap.from(cards, {
+          y: 60,
+          scale: 0.95,
+          opacity: 0,
+          duration: 1,
+          stagger: 0.15,
+          ease: "power4.out",
+          delay: 0.2,
+        });
+      }
     }, heroRef);
 
     return () => ctx.revert();
@@ -63,7 +81,7 @@ const Hero = () => {
 
           {/* Right Content - Product Grid */}
           <div className={styles.rightContent}>
-            <div className={styles.productGrid}>
+            <div className={styles.productGrid} ref={productGridRef}>
               <div className={`${styles.productCard} ${styles.large}`}>
                 <span className={styles.price}>₹14,999</span>
                 <div className={styles.productImage}>

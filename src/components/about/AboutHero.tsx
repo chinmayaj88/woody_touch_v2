@@ -11,27 +11,41 @@ gsap.registerPlugin(ScrollTrigger);
 const AboutHero = () => {
   const section1Ref = useRef<HTMLElement>(null);
   const section2Ref = useRef<HTMLElement>(null);
+  const founderImgRef = useRef<HTMLDivElement>(null);
+  const content1Ref = useRef<HTMLDivElement>(null);
+  const content2Ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Animate first section
-      gsap.from(".section1-content", {
-        x: 50,
-        opacity: 0,
-        duration: 1,
-        scrollTrigger: {
-          trigger: ".section1-content",
-          start: "top 80%",
-        },
-      });
-
-      // Animate second section
-      gsap.from(".section2-content", {
+      // Animate Founder Section
+      gsap.from(founderImgRef.current, {
         x: -50,
         opacity: 0,
         duration: 1,
         scrollTrigger: {
-          trigger: ".section2-content",
+          trigger: section1Ref.current,
+          start: "top 80%",
+        },
+      });
+
+      gsap.from(content1Ref.current, {
+        x: 50,
+        opacity: 0,
+        duration: 1,
+        delay: 0.2,
+        scrollTrigger: {
+          trigger: section1Ref.current,
+          start: "top 80%",
+        },
+      });
+
+      // Animate Second Section
+      gsap.from(content2Ref.current, {
+        x: -50,
+        opacity: 0,
+        duration: 1,
+        scrollTrigger: {
+          trigger: section2Ref.current,
           start: "top 80%",
         },
       });
@@ -46,7 +60,7 @@ const AboutHero = () => {
       <section className={styles.heroSection} ref={section1Ref}>
         <div className={styles.heroGrid}>
           <div className={styles.founderSection}>
-            <div className={styles.founderImageWrapper}>
+            <div className={styles.founderImageWrapper} ref={founderImgRef}>
               <div className={styles.heroImage}></div>
               <div className={styles.quoteBox}>
                 <p className={styles.quote}>
@@ -61,7 +75,7 @@ const AboutHero = () => {
             </div>
           </div>
 
-          <div className={`${styles.contentSection} section1-content`}>
+          <div className={styles.contentSection} ref={content1Ref}>
             <div className={styles.content}>
               <h1 className={styles.title}>
                 Our Journey & <br />
@@ -97,7 +111,8 @@ const AboutHero = () => {
       <section className={styles.heroSection} ref={section2Ref}>
         <div className={`${styles.heroGrid} ${styles.reverse}`}>
           <div
-            className={`${styles.contentSection} ${styles.lightBg} section2-content`}
+            className={`${styles.contentSection} ${styles.lightBg}`}
+            ref={content2Ref}
           >
             <div className={styles.content}>
               <h2 className={styles.title}>

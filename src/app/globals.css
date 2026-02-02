@@ -1,20 +1,21 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap");
 
 :root {
-  /* Brand Colors */
-  --primary-brown: #9a7b5c;
-  --dark-brown: #6b5442;
-  --light-brown: #c4a885;
-  --cream: #f5f1ed;
+  /* Premium Brand Colors - Dark Brown & White Theme */
+  --primary-brown: #4a3426; /* Very Dark Rich Brown */
+  --dark-brown: #2c1810; /* Almost Black Brown - Deep Espresso */
+  --light-brown: #6d5344; /* Medium Dark Brown for accents */
+  --accent-gold: #b8860b; /* Dark Goldenrod for luxury accents */
+  --cream: #faf9f7; /* Warm white for alternating sections */
 
-  /* Neutral Colors */
-  --white: #ffffff;
-  --off-white: #faf8f5;
-  --light-gray: #f3f3f3;
-  --gray: #8b8b8b;
-  --dark-gray: #4a4a4a;
-  --charcoal: #2c2c2c;
-  --black: #1a1a1a;
+  /* Neutral Colors - Pure White & Dark */
+  --white: #ffffff; /* Pure crisp white */
+  --off-white: #f5f5f5; /* Very light gray for subtle backgrounds */
+  --light-gray: #d6d6d6; /* Light borders */
+  --gray: #6b6b6b; /* Medium gray for secondary text */
+  --dark-gray: #3a3a3a; /* Dark gray */
+  --charcoal: #1a1a1a; /* Almost black for primary text */
+  --black: #000000; /* Pure black */
 
   /* Typography */
   --font-primary: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
@@ -80,9 +81,9 @@ img {
 }
 
 .container {
-  max-width: 1280px;
+  max-width: 1440px; /* Optimized for big screens */
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 4rem; /* More breathing room */
 }
 
 @media (max-width: 768px) {

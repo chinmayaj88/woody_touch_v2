@@ -12,28 +12,57 @@ gsap.registerPlugin(ScrollTrigger);
 const reviewsData = [
   {
     rating: 5,
-    text: "Ultrices porttitor lacus sed condimentum nulla viverra. Maecenas sed nisi imperdiet sed lorem sed quis sagittis in. Auctor augue ut nec a quisque libero imperdiet velit ut.",
-    additionalText:
-      "Ullamcorper sit lacus sed risus congue integer amet erat risus. Euismod lacus lectus a dignissim velit. Facilisi lorem vitae purus habitant ac neque...",
-    name: "Devon Simpson",
-    role: "Customer",
+    text: "The craftsmanship is absolutely stunning! We bought the Classic Curve Armchair and it has become the centerpiece of our living room. The cane work is intricate and the comfort is unmatched.",
+    name: "Priya Mehta",
+    role: "Interior Designer, Delhi",
+    avatar: null,
+  },
+  {
+    rating: 5,
+    text: "Woody Touch exceeded all my expectations. The furniture is not only beautiful but incredibly durable. I've had my daybed for over a year now and it still looks brand new!",
+    name: "Raj Kumar",
+    role: "Architect, Mumbai",
+    avatar: null,
+  },
+  {
+    rating: 4,
+    text: "Excellent quality and eco-friendly materials. The delivery was prompt and the team was very professional. Highly recommend for anyone looking for sustainable furniture.",
+    name: "Anjali Sharma",
+    role: "Homeowner, Bangalore",
+    avatar: null,
+  },
+  {
+    rating: 5,
+    text: "I am in love with my new dining chairs! The traditional weaving technique combined with modern design is exactly what I was looking for. Worth every rupee!",
+    name: "Vikram Singh",
+    role: "Business Owner, Jaipur",
+    avatar: null,
+  },
+  {
+    rating: 5,
+    text: "The attention to detail is remarkable. Each piece tells a story of heritage and craftsmanship. Our guests always compliment our Woody Touch furniture!",
+    name: "Neha Patel",
+    role: "Doctor, Pune",
     avatar: null,
   },
 ];
 
 const Reviews = () => {
   const sectionRef = useRef<HTMLElement>(null);
-  const cardRef = useRef<HTMLDivElement>(null);
+  const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.from(cardRef.current, {
-        x: -50,
+      // Stagger animation for review cards
+      const cards = cardsRef.current.filter(Boolean);
+      gsap.from(cards, {
+        x: 50,
         opacity: 0,
-        duration: 1,
+        duration: 0.8,
+        stagger: 0.15,
         scrollTrigger: {
-          trigger: cardRef.current,
-          start: "top 80%",
+          trigger: sectionRef.current,
+          start: "top 75%",
         },
       });
     }, sectionRef);
@@ -43,53 +72,50 @@ const Reviews = () => {
 
   return (
     <section className={styles.reviews} ref={sectionRef}>
-      <div className={styles.reviewsGrid}>
-        {/* Left - Review Card */}
-        <div className={styles.reviewCard} ref={cardRef}>
-          <h2 className={styles.title}>Customer Reviews</h2>
+      <div className="container">
+        <div className={styles.header}>
+          <h2 className={styles.title}>What Our Clients Say</h2>
+          <p className={styles.subtitle}>
+            Real experiences from customers who brought natural elegance into
+            their homes
+          </p>
+        </div>
 
-          <div className={styles.stars}>
-            {[...Array(5)].map((_, i) => (
-              <Star key={i} size={20} fill="#FDB022" stroke="#FDB022" />
-            ))}
-          </div>
+        <div className={styles.reviewsContainer}>
+          {reviewsData.map((review, index) => (
+            <div
+              key={index}
+              className={styles.reviewCard}
+              ref={(el) => {
+                cardsRef.current[index] = el;
+              }}
+            >
+              <div className={styles.stars}>
+                {[...Array(review.rating)].map((_, i) => (
+                  <Star key={i} size={18} fill="#D4AF37" stroke="#D4AF37" />
+                ))}
+              </div>
 
-          <div className={styles.reviewText}>
-            <p>{reviewsData[0].text}</p>
-            <p>{reviewsData[0].additionalText}</p>
-          </div>
+              <p className={styles.reviewText}>{review.text}</p>
 
-          <div className={styles.reviewer}>
-            <div className={styles.avatar}>
-              {reviewsData[0].avatar ? (
-                <Image
-                  src={reviewsData[0].avatar}
-                  alt={reviewsData[0].name}
-                  width={60}
-                  height={60}
-                />
-              ) : (
-                <div className={styles.avatarPlaceholder}>
-                  <svg width="30" height="30" viewBox="0 0 30 30" fill="none">
-                    <circle cx="15" cy="10" r="6" fill="#D4D4D4" />
+              <div className={styles.reviewer}>
+                <div className={styles.avatar}>
+                  <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                    <circle cx="20" cy="20" r="20" fill="#F5F5F5" />
+                    <circle cx="20" cy="15" r="7" fill="#4A3426" />
                     <path
-                      d="M5 26C5 21 9 18 15 18C21 18 25 21 25 26"
-                      fill="#D4D4D4"
+                      d="M8 35C8 28 13 24 20 24C27 24 32 28 32 35"
+                      fill="#4A3426"
                     />
                   </svg>
                 </div>
-              )}
+                <div className={styles.reviewerInfo}>
+                  <h4>{review.name}</h4>
+                  <span>{review.role}</span>
+                </div>
+              </div>
             </div>
-            <div className={styles.reviewerInfo}>
-              <h4>{reviewsData[0].name}</h4>
-              <span>{reviewsData[0].role}</span>
-            </div>
-          </div>
-        </div>
-
-        {/* Right - Background Image */}
-        <div className={styles.imageSection}>
-          <div className={styles.backgroundImage}></div>
+          ))}
         </div>
       </div>
     </section>

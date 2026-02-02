@@ -38,18 +38,22 @@ const RoomCategories = () => {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      cardsRef.current.forEach((card, index) => {
-        gsap.from(card, {
-          y: 30,
+      // Grid Staggered Entry
+      const cards = cardsRef.current.filter(Boolean);
+      if (cards.length > 0) {
+        gsap.from(cards, {
+          y: 60,
           opacity: 0,
-          duration: 0.8,
-          delay: index * 0.1,
+          scale: 0.95,
+          duration: 1,
+          stagger: 0.1,
+          ease: "power3.out",
           scrollTrigger: {
-            trigger: card,
-            start: "top 85%",
+            trigger: sectionRef.current,
+            start: "top 70%",
           },
         });
-      });
+      }
     }, sectionRef);
 
     return () => ctx.revert();
